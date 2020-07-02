@@ -1,0 +1,6 @@
+_build/build.config.php
+config.core.php
+
+_packages/*.*
+!_packages/.gitignore
+!_packages/*.zip

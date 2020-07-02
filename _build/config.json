@@ -1,0 +1,65 @@
+{
+	"name": "socialFeed",
+	"lowCaseName": "socialfeed",
+	"description": "Import Social Feed",
+	"author": "Jan Dähne",
+	"version": "1.0.0-pl",
+	"package": {
+		"elements": {
+			"chunks": [{
+                "name": "socialFeedTpl",
+                "file": "socialfeedtpl.chunk.tpl"
+            }],
+            "snippets": [{
+                "name": "socialFeed",
+                "file": "socialfeed.snippet.php"
+            }]
+		},
+	    "systemSettings": [
+			{
+				"key": "image_path",
+				"area": "system",
+				"value": "socialfeed/images/"
+			},
+			{
+				"key": "api_key",
+				"area": "system",
+				"value": ""
+			},
+			{
+				"key": "feed_key",
+				"area": "system",
+				"value": ""
+			},
+			{
+				"key": "feed_id",
+				"area": "system",
+				"value": ""
+			},
+			{
+				"key": "published",
+				"area": "system",
+				"value": true,
+				"type": "combo-boolean"
+			}
+		]
+	},
+	"database": {
+		"tables": [
+			"SocialFeedItem"
+		]
+	},
+	"dependencies": [{
+		"name": "php",
+		"version": ">=5.6"
+	},
+	{
+		"name": "modx",
+		"version": ">=2.6"
+	}],
+	"build": {
+		"readme": "docs/readme.md",
+		"license": "docs/license.md",
+		"changelog": "docs/changelog.md"
+	}
+}
