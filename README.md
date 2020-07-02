@@ -58,4 +58,3 @@ socialFeed has an internal caching. You can call it uncached.
 | content | Content of the media |
 | date | Date of Publishing the media |
 | properties | properties can be called by prefixing them: +properties.yourname |
-| id | ID |
