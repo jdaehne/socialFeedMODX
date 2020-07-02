@@ -45,6 +45,7 @@ socialFeed has an internal caching. You can call it uncached.
 
 ## Placeholders: &tpl
 | tag | description |
+| --- | --- |
 | id | ID |
 | idx | Increasing Number |
 | key | socialFeed DB reference |
