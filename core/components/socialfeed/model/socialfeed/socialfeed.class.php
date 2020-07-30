@@ -146,7 +146,7 @@ class SocialFeed {
             $post->set('media_url', $item->media_url);
             $post->set('image_url', $image);
             $post->set('permalink', $item->permalink);
-            $post->set('content', $item->content);
+            $post->set('content', $this->removeEmoji($item->content));
             $post->set('date', $item->published_at);
             $post->set('properties', $item->properties);
             $post->set('published', $this->published);
