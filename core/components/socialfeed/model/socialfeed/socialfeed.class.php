@@ -156,19 +156,25 @@ class SocialFeed {
         }
 
         // clear cache
-        $this->modx->cacheManager->delete('socialFeed.socialfeed');
+        $this->modx->cacheManager->refresh(array(
+            'socialfeed' => '',
+        ));
 
         return $imports;
     }
 
 
     // get items from socialFeed
-    private function getItemsFromFeed()
+    private function getItemsFromFeed($url = NULL)
     {
+        if (empty($url)) {
+            $url = 'https://api.socialfeed.pro/api/feed/' . $this->feed_id;
+        }
+
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.socialfeed.pro/api/feed/" . $this->feed_id,
+            CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -188,9 +194,13 @@ class SocialFeed {
         curl_close($curl);
 
         $data = json_decode($response);
-        $media = array();
+        $media = $data->data;
 
-        return $data->data;
+        if ($data->next_page_url) {
+            $media = array_merge($media, $this->getItemsFromFeed($data->next_page_url));
+        }
+
+        return $media;
     }
 
 
@@ -235,14 +245,22 @@ class SocialFeed {
     // get items from cache
     public function getCache($key)
     {
+        $options = array(
+            xPDO::OPT_CACHE_KEY => 'socialfeed',
+        );
+
         return  $this->modx->cacheManager->get($key . '.socialfeed');
     }
 
     // add items to cache
     public function addCache($items, $key, $time)
     {
-        $this->modx->cacheManager->delete($key . '.socialfeed');
-        $this->modx->cacheManager->set($key . '.socialfeed', $items, $time);
+        $options = array(
+            xPDO::OPT_CACHE_KEY => 'socialfeed',
+        );
+
+        $this->modx->cacheManager->delete($key . '.socialfeed', $options);
+        $this->modx->cacheManager->set($key . '.socialfeed', $items, $time, $options);
 
     }
 
