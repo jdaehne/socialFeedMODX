@@ -197,7 +197,7 @@ class SocialFeed {
         $media = $data->data;
 
         if ($data->next_page_url) {
-            $media = array_merge($media, $this->getItemsFromFeed($data->next_page_url));
+            $media = array_merge((array) $media, (array) $this->getItemsFromFeed($data->next_page_url));
         }
 
         return $media;
