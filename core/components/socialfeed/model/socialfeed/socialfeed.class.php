@@ -182,6 +182,7 @@ class SocialFeed {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_SSL_VERIFYPEER => 0,
             CURLOPT_HTTPHEADER => array(
                 "api-key: " . $this->api_key,
                 "feed-key: " . $this->feed_key,
@@ -190,6 +191,11 @@ class SocialFeed {
         ));
 
         $response = curl_exec($curl);
+
+        // error handling
+        if ($response === false) {
+            $this->modx->log(1, '[socialFeed] Error CURL: ' . curl_error($curl));
+        }
 
         curl_close($curl);
 

@@ -1,5 +1,10 @@
 Changelog for socialFeed
 
+socialFeed 1.0.5
+---------------------------------
++ Fix CURL issue with SSL
+
+
 socialFeed 1.0.4
 ---------------------------------
 + Fix import array issue
