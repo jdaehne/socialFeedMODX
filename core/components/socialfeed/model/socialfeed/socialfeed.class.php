@@ -202,10 +202,6 @@ class SocialFeed {
         $data = json_decode($response);
         $media = $data->data;
 
-        if ($data->next_page_url) {
-            $media = array_merge((array) $media, (array) $this->getItemsFromFeed($data->next_page_url));
-        }
-
         return $media;
     }
 
