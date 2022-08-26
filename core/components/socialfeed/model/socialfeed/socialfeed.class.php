@@ -202,10 +202,6 @@ class SocialFeed {
         $data = json_decode($response);
         $media = $data->data;
 
-        foreach ($media as $key => $value) {
-            $media[$key]->content = $this->removeEmoji($value->content);
-        }
-
         return $media;
     }
 
