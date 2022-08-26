@@ -206,7 +206,6 @@ class SocialFeed {
             $media[$key]->content = $this->removeEmoji($value->content);
         }
 
-        die(print_r(json_encode($media)));
         return $media;
     }
 
