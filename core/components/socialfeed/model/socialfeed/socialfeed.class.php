@@ -270,10 +270,9 @@ class SocialFeed {
     // Removes all emoji from content.
     public static function removeEmoji($text)
     {
-        //return $text;
-        return $text = iconv('UTF-8', 'ISO-8859-15//IGNORE', $text);
-        //$text = preg_replace('/\s+/', ' ', $text);
-        //return iconv('ISO-8859-15', 'UTF-8', $text);
+        $text = iconv('UTF-8', 'ISO-8859-15//IGNORE', $text);
+        $text = preg_replace('/\s+/', ' ', $text);
+        return iconv('ISO-8859-15', 'UTF-8', $text);
    }
 
 }
