@@ -1,5 +1,10 @@
 Changelog for socialFeed
 
+socialFeed 1.0.7
+---------------------------------
++ Fix removing emojicons from content
+
+
 socialFeed 1.0.6
 ---------------------------------
 + Fix import FeedItems
