@@ -134,8 +134,9 @@ class SocialFeed {
         foreach ($items as $item) {
 
             // check if item already exists
-            if ($existingItem = $this->modx->getObject('SocialFeedItem', array('key' => $item->id))) {
-                continue;
+            if (!$post = $this->modx->getObject('SocialFeedItem', array('key' => $item->id))) {
+                $post = $this->modx->newObject('SocialFeedItem');
+                $post->set('published', $this->published);
             }
 
             // save image to server
@@ -145,7 +146,6 @@ class SocialFeed {
             }
 
             // save to database
-            $post = $this->modx->newObject('SocialFeedItem');
             $post->set('key', $item->id);
             $post->set('username', $item->username);
             $post->set('channel_type', $item->channel_type);
@@ -156,7 +156,6 @@ class SocialFeed {
             $post->set('content', $this->removeEmoji($item->content));
             $post->set('date', $item->published_at);
             $post->set('properties', $item->properties);
-            $post->set('published', $this->published);
             $post->save();
 
             $imports[] = $item;
