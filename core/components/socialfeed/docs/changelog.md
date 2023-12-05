@@ -1,5 +1,9 @@
 Changelog for socialFeed
 
+socialFeed 1.0.9
+---------------------------------
++ Update existing items on cron job
+
 socialFeed 1.0.8
 ---------------------------------
 + Add filterChannelType property
