@@ -1,5 +1,5 @@
 # socialFeed
-socialfeed extra for MODX CMS. The extra is an service to show your social Channels like Instagram, Twitter, YouTube on your MODX Website without struggling with the APIs of the social media sites. Just setup your Feed on www.socialfeed.pro, connect your social channels and install the socialFeed extra to show all your media on your site.
+socialfeed extra for MODX CMS. The extra is an service to show your social Channels like Instagram or TikTok on your MODX Website without struggling with the APIs of the social media sites. Just setup your Feed on www.socialfeed.pro, connect your social channels and install the socialFeed extra to show all your media on your site.
 
 ## Benefits
 - Easy integration without any API-knowledge
@@ -39,6 +39,7 @@ socialFeed has an internal caching. You can call it uncached.
 | &sortdir | desc | Option: desc/asc |
 | &filterUser |  | Filter media by username. Usefull if you have different channels in your feed and you want to show different accounts in different sections of your site. |
 | &filterContent |  | Filter media by string in content. For example: #youtag to filter media by hastags. |
+| &filterChannelType |  | Filter media by channel type. For example: "tiktok" to show only media from a tiktok channel. Or "instagram,tiktok" to show media from Tiktok and Instagram Channels. |
 | &cache | true | Option: True/False to enable/disable caching. |
 | &cacheTime | 3600 | Seconds to refresh Cache. You can actually set this up very high because your cron-job will clear the cache if there is new media available. |
 | &cacheKey | socialFeed | Cahing-Key |
@@ -50,8 +51,8 @@ socialFeed has an internal caching. You can call it uncached.
 | idx | Increasing Number |
 | key | socialFeed DB reference |
 | username | ID |
-| channel | Channel Type: instagram / youtube / ... |
-| type | Media-Type: IMAGE / VIDEO |
+| channel | Channel Type: instagram / tiktok / ... |
+| type | Media-Type: IMAGE / VIDEO / EMBED |
 | image | URL to the image thumb |
 | url | URL to the Media-File Image/Video |
 | permalink | URL to the post/website |
