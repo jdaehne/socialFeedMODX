@@ -23,13 +23,14 @@ $sortby = $modx->getOption('sortby', $scriptProperties, 'date', true);
 $sortdir = $modx->getOption('sortdir', $scriptProperties, 'desc', true);
 $filterUser = $modx->getOption('filterUser', $scriptProperties);
 $filterContent = $modx->getOption('filterContent', $scriptProperties);
+$filterChannelType = $modx->getOption('filterChannelType', $scriptProperties);
 $cache = $modx->getOption('cache', $scriptProperties, true, true);
 $cacheTime = $modx->getOption('cacheTime', 3600, true);
 $cacheKey = $modx->getOption('cacheKey', $scriptProperties, 'socialFeed', true);
 
 
 // get items
-$items = $socialfeed->getItems($limit, $offset, $sortby, $sortdir, $filterUser, $filterContent, array(
+$items = $socialfeed->getItems($limit, $offset, $sortby, $sortdir, $filterUser, $filterContent, $filterChannelType, array(
     'cache' => $cache,
     'time' => $cacheTime,
     'key' => $cacheKey,

@@ -1,5 +1,9 @@
 Changelog for socialFeed
 
+socialFeed 1.0.8
+---------------------------------
++ Add filterChannelType property
+
 socialFeed 1.0.7
 ---------------------------------
 + Fix removing emojicons from content

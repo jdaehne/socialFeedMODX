@@ -44,7 +44,7 @@ class SocialFeed {
 
 
     // get items
-    public function getItems($limit, $offset, $sortby, $sortdir, $filterUser = NULL, $filterContent = NULL, $cache = array())
+    public function getItems($limit, $offset, $sortby, $sortdir, $filterUser = NULL, $filterContent = NULL, $filterChannelType = NULL, $cache = array())
     {
         // check if items in cache
         if (!empty($cache['cache'])) {
@@ -71,6 +71,13 @@ class SocialFeed {
         if (!empty($filterContent)) {
             $where = array_merge($where, array(
                 'content:LIKE' => '%' . $filterContent . '%'
+            ));
+        }
+
+        // filterChannelType
+        if (!empty($filterChannelType)) {
+            $where = array_merge($where, array(
+                'channel_type:In' => explode(',', $filterChannelType)
             ));
         }
 
