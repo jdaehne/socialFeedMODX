@@ -104,7 +104,7 @@ class SocialFeed {
                     'url' => $item->get('media_url'),
                     'permalink' => $item->get('permalink'),
                     'content' => $item->get('content'),
-                    'date' => $item->get('date'),
+                    'published_date' => $item->get('published_date'),
                     'properties' => json_decode($item->get('properties'), true),
                     'published' => $item->get('published'),
                     'deleted' => $item->get('deleted'),
@@ -154,7 +154,7 @@ class SocialFeed {
             $post->set('image_url', $image);
             $post->set('permalink', $item->permalink);
             $post->set('content', $this->removeEmoji($item->content));
-            $post->set('date', $item->published_at);
+            $post->set('published_date', $item->published_at);
             $post->set('properties', $item->properties);
             $post->save();
 
