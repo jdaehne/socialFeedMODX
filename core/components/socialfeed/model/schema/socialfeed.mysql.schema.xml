@@ -9,7 +9,7 @@
         <field key="image_url" dbtype="text" phptype="string" null="true" />
         <field key="permalink" dbtype="text" phptype="string" null="true" />
         <field key="content" dbtype="text" phptype="string" null="true" />
-        <field key="published_date" dbtype="timestamp" phptype="timestamp" null="false" />
+        <field key="published_date" dbtype="timestamp" phptype="timestamp" null="true" />
         <field key="properties" dbtype="text" phptype="string" null="true" />
         <field key="deleted" dbtype="int" precision="1" attributes="unsigned" phptype="integer" null="false" default="0"/>
         <field key="published" dbtype="int" precision="1" attributes="unsigned" phptype="integer" null="false" default="0"/>
