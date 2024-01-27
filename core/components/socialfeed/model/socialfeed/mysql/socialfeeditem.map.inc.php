@@ -21,7 +21,7 @@ $xpdo_meta_map['SocialFeedItem']= array (
     'image_url' => NULL,
     'permalink' => NULL,
     'content' => NULL,
-    'date' => NULL,
+    'published_date' => NULL,
     'properties' => NULL,
     'deleted' => 0,
     'published' => 0,
@@ -84,11 +84,11 @@ $xpdo_meta_map['SocialFeedItem']= array (
       'phptype' => 'string',
       'null' => true,
     ),
-    'date' => 
+    'published_date' => 
     array (
       'dbtype' => 'timestamp',
       'phptype' => 'timestamp',
-      'null' => false,
+      'null' => true,
     ),
     'properties' => 
     array (
