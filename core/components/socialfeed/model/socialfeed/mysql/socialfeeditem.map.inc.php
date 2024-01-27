@@ -88,7 +88,7 @@ $xpdo_meta_map['SocialFeedItem']= array (
     array (
       'dbtype' => 'timestamp',
       'phptype' => 'timestamp',
-      'null' => false,
+      'null' => true,
     ),
     'properties' => 
     array (
